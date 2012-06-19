@@ -1,0 +1,72 @@
+body {
+	background-color: #E3E9ED;
+	font-size: 10.5pt;
+}
+
+h1 {
+	font-family: Helvetica, Arial;
+}
+
+h3 {
+	margin-bottom: 10px;
+}
+
+.topbar {
+	padding: 10px 20px 0 20px;
+	margin-bottom: 25px;
+	border-bottom: solid 1px #ccc;
+	background-color: #F0DB4F;
+}
+
+.topbar h1 {
+	font-size: 200%;
+	display: inline;
+	margin-right: 5px;
+	color: #000;
+}
+
+.topbar .label {
+	font-weight: normal;
+}
+
+.topbar .navbar .nav {
+	float: right;
+}
+
+.topbar .navbar .nav li a {
+	color: #000;
+	text-shadow: none;
+}
+
+.editor .CodeMirror {
+	background-color: #fff;
+	border: solid 1px #ccc;
+	padding: 5px;
+}
+
+.editor .CodeMirror-scroll {
+	height: 600px;
+}
+
+.editor .buttons {
+	margin-top: 10px;
+	text-align: right;
+}
+
+.report h3 {
+	font-size: 120%;
+	font-weight: normal;
+}
+
+.report .code, .report .line {
+	width: 45px;
+}
+
+.footer {
+	text-align: center;
+	margin: 25px 0;
+}
+
+.footer p {
+	font-size: 90%;
+}

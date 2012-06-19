@@ -1,0 +1,91 @@
+<!doctype html>
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>JSHint Next Preview</title>
+
+		<link rel="stylesheet" href="/media/css/bootstrap.min.css">
+		<link rel="stylesheet" href="/media/css/codemirror.css">
+		<link rel="stylesheet" href="/media/css/weekly.css">
+
+		<script src="/media/js/underscore.js"></script>
+		<script src="/media/js/codemirror.js"></script>
+		<script src="/media/js/javascript.js"></script>
+		<script src="/media/js/jshint.js"></script>
+		<script src="/media/js/weekly.js"></script>
+	</head>
+
+	<body onload="onload()">
+		<div class="container-fluid topbar">
+			<div class="row-fluid">
+				<div class="span4">
+					<img src="/media/img/jshint.png" alt="JSHint">
+					<span class="label label-important">very very early preview</span>
+				</div>
+
+				<div class="span8 navbar">
+					<ul class="nav nav-pills">
+						<li><a href="/">Home</a></li>
+						<li><a href="/blog/">Blog</a></li>
+						<li><a href="https://github.com/jshint/jshint-next/">Source</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+		<div class="container-fluid editor">
+			<div class="row-fluid">
+				<div class="span6">
+					<textarea id="editor">// Your code here.</textarea>
+					<div class="buttons">
+						<button class="btn btn-primary" onclick="lint()">
+							<a class="icon-heart icon-white"></a>
+							Lint
+						</button>
+					</div>
+				</div>
+
+				<div class="span6 panel desc">
+					{{ .Desc }}
+				</div>
+
+				<div class="span6 panel report" style="display:none;">
+					<div class="alert alert-error">
+						Uh oh, JSHint has found potential problems in your code:
+					</div>
+
+					<table class="table table-bordered"></table>
+				</div>
+
+				<div class="span6 panel success" style="display:none;">
+					<div class="alert alert-success">
+						Good job! JSHint hasn't found any problems with your code.
+					</div>
+
+					<p><img src="/media/img/ididit.gif" alt="I did it!"></p>
+					<p><small>
+						<a href="http://spacestation11.blogspot.com/2012/03/i-done-did-it.html">Source</a>
+					</small></p>
+				</div>
+			</div>
+		</div>
+
+		<div class="footer">
+			<p><strong>JSHint</strong>, by JSHint Community.</p>
+			<p>Follow us on <a href="https://twitter.com/jshint/">Twitter</a> or
+			<a href="https://github.com/jshint/">GitHub</a>.
+			Maintained by <a href="http://anton.kovalyov.net">Anton Kovalyov</a>.</p>
+		</div>
+
+		<script type="underscore/template" id="template-report">
+			<% _.each(warnings, function (warning) { %>
+			<tr>
+				<td class="code"><%= warning.code %></td>
+				<td class="line"><%= warning.line %></td>
+				<td class="desc"><%= warning.desc %></td>
+			</tr>
+			<% }); %>
+		</script>
+	</body>
+</html>
