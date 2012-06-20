@@ -11,31 +11,35 @@ h3 {
 	margin-bottom: 10px;
 }
 
+.ribbon {
+	position: absolute;
+	top: 0;
+	right: 0;
+	border: 0;
+}
+
 .topbar {
-	padding: 10px 20px 0 20px;
-	margin-bottom: 25px;
+	margin-bottom: 15px;
 	border-bottom: solid 1px #ccc;
-	background-color: #F0DB4F;
+	background-color: #fff;
 }
 
-.topbar h1 {
-	font-size: 200%;
-	display: inline;
-	margin-right: 5px;
-	color: #000;
+.topbar img {
+	margin: 10px 0;
 }
 
-.topbar .label {
-	font-weight: normal;
+.topbar .links {
+  margin-top: 65px;
 }
 
-.topbar .navbar .nav {
-	float: right;
+.topbar .links a {
+  margin-right: 15px;
 }
 
-.topbar .navbar .nav li a {
-	color: #000;
-	text-shadow: none;
+.topbar .preview-badge {
+	position: absolute;
+	left: 103px;
+	top: 20px;
 }
 
 .editor .CodeMirror {
