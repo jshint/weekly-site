@@ -1,9 +1,9 @@
-package main
+package app
 
 import (
-	"flag"
+	"appengine"
+	"blackfriday"
 	"fmt"
-	"github.com/russross/blackfriday"
 	"html/template"
 	"io/ioutil"
 	"net/http"
@@ -11,13 +11,10 @@ import (
 
 var (
 	templates = make(map[string]*template.Template)
-	debug     = flag.Bool("debug", false, "Enable debug features.")
 )
 
-func main() {
-	flag.Parse()
-
-	if *debug == false {
+func init() {
+	if !appengine.IsDevAppServer() {
 		compileTemplates()
 	}
 
@@ -25,8 +22,6 @@ func main() {
 	http.Handle("/media/", http.StripPrefix("/media/", fs))
 
 	http.HandleFunc("/", Index)
-
-	panic(http.ListenAndServe(":8000", nil))
 }
 
 func compileTemplates() {
@@ -39,7 +34,7 @@ func compileTemplates() {
 }
 
 func renderTemplate(w http.ResponseWriter, name string, data interface{}) {
-	if *debug {
+	if appengine.IsDevAppServer() {
 		fmt.Println("Recompiling templates")
 		compileTemplates()
 	}
