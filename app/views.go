@@ -18,10 +18,10 @@ func init() {
 		compileTemplates()
 	}
 
-	fs := http.FileServer(http.Dir("media/"))
-	http.Handle("/media/", http.StripPrefix("/media/", fs))
-
 	http.HandleFunc("/", Index)
+	http.HandleFunc("/bug/", func(w http.ResponseWriter, r *http.Request) {
+		http.Redirect(w, r, "https://github.com/jshint/jshint-next/issues/new", 302)
+	});
 }
 
 func compileTemplates() {
